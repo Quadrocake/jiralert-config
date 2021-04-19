@@ -1,0 +1,15 @@
+global:
+  resolve_timeout: 30s
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 15s
+  repeat_interval: 1m
+  receiver: jira
+
+receivers:
+- name: 'jira'
+  webhook_configs:
+  - url: 'http://'
+    send_resolved: false

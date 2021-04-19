@@ -1,0 +1,21 @@
+defaults:
+
+  api_url:
+  user:
+  password:
+
+  issue_type: Task
+  priority: '{{ template "jira.priority" . }}'
+  summary: '{{ template "jira.summary" . }}'
+  description: '{{ template "jira.description" . }}'
+  reopen_state: 'Reopen'
+  reopen_duration: 5m
+
+receivers:
+  - name: 'jira'
+    project: AL
+    add_group_labels: false
+    fields:
+      customfield_10029: { "value": '{{ template "jira.pc" . }}' }
+
+template: /app/config/jiralert.tmpl
