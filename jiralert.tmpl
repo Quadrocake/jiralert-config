@@ -2,7 +2,7 @@
 
 {{ define "jira.priority" }}{{ if .CommonLabels.Severity }}{{ if eq .CommonLabels.Severity "Critical" }}High{{ else }}Medium{{ end }}{{ else }}Medium{{ end }}{{ end }}
 
-{{ define "jira.pc" }}{{ if .CommonLabels.Category }}{{ .CommonLabels.Category }}{{ else }}Other{{ end }}{{ end }}
+{{ define "jira.product" }}{{ if .CommonLabels.Product}}{{ .CommonLabels.Product}}{{ else }}Other{{ end }}{{ end }}
 
 {{ define "jira.description" }}{{ range .Alerts.Firing }}Labels:
 {{ range .Labels.SortedPairs }} - {{ .Name }} = {{ .Value }}

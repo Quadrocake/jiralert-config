@@ -4,18 +4,18 @@ defaults:
   user:
   password:
 
-  issue_type: Task
+  issue_type: Incident
   priority: '{{ template "jira.priority" . }}'
   summary: '{{ template "jira.summary" . }}'
   description: '{{ template "jira.description" . }}'
-  reopen_state: 'Reopen'
-  reopen_duration: 5m
+  reopen_state: 'Back to work in progress'
+  reopen_duration: 8h
 
 receivers:
   - name: 'jira'
-    project: AL
+    project: OOSS
     add_group_labels: false
     fields:
-      customfield_10029: { "value": '{{ template "jira.pc" . }}' }
+      customfield_10062: { "value": '{{ template "jira.product" . }}' }
 
-template: /app/config/jiralert.tmpl
+template: /jiralert.tmpl
