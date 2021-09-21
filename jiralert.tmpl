@@ -1,6 +1,6 @@
 {{ define "jira.summary" }}[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .GroupLabels.SortedPairs.Values | join " " }} {{ if gt (len .CommonLabels) (len .GroupLabels) }}({{ with .CommonLabels.Remove .GroupLabels.Names }}{{ .Values | join " " }}{{ end }}){{ end }}{{ end }}
 
-{{ define "jira.priority" }}{{ if .CommonLabels.Severity }}{{ if eq .CommonLabels.Severity "Critical" }}High{{ else }}Medium{{ end }}{{ else }}Medium{{ end }}{{ end }}
+{{ define "jira.priority" }}{{ if .CommonLabels.Severity }}{{ if eq .CommonLabels.Severity "сritical" }}High{{ else }}Medium{{ end }}{{ else }}Medium{{ end }}{{ end }}
 
 {{ define "jira.product" }}{{ if .CommonLabels.Product}}{{ .CommonLabels.Product}}{{ else }}Other{{ end }}{{ end }}
 
